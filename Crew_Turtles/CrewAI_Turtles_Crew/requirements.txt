@@ -1,4 +1,4 @@
 crewai
 crewai[tools]
 streamlit
-langchain
+
