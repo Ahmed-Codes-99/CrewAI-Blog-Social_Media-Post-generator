@@ -1,3 +1,9 @@
+from typing import Optional
+import threading
+
+class RPMController:
+    _timer: Optional[threading.Timer] = None
+
 import os
 import streamlit as st
 from crewai import Crew, Process
