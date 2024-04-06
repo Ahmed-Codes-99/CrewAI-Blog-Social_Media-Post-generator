@@ -3,8 +3,6 @@ from textwrap import dedent
 from langchain.llms import OpenAI, Ollama
 from langchain_openai import ChatOpenAI
 from tools.search_tools import SearchTools
-from tools.browser_tools import BrowserTools
-from tools.ExaSearchTools import ExaSearchTool
 from crewai_tools import SeleniumScrapingTool
 from crewai_tools import ScrapeWebsiteTool
 
@@ -27,7 +25,7 @@ class TurtlesAgents:
             backstory=dedent(f"""You are and expert in researching and summarizing news. Send summarized content to Writer Agent."""),
             goal=dedent(f"""research and scrape content and provide summarized content to the writer agent."""),
             tools=[SearchTools.search_internet,selenium_tool,scrape_tool],
-            #tools=ExaSearchTool.tools(),
+    
             allow_delegation=False,
             verbose=True,
             llm=self.OpenAIGPT35,
@@ -43,7 +41,7 @@ class TurtlesAgents:
                              After blog is complete send to Social Media Influencer agent."""),
             goal=dedent(f"""Craft compelling blog content on the given search term and the content provided to you by the researcher agent."""),
              tools=[SearchTools.search_internet],
-             #tools=ExaSearchTool.tools(),     
+             
             allow_delegation=False,
             verbose=True,
             llm=self.OpenAIGPT35,
@@ -55,7 +53,7 @@ class TurtlesAgents:
             backstory=dedent(f"""You are an Expert Vetted social media influencer and manager. You are known for your sleuthing abilities and your ability to generate complicated content sent from Agent Writer into Social media posts in 280 characters or less."""),
             goal=dedent(f"""summarize and Craft a compelling social media post from the blog content porovided by the writer agent"""),
               tools=[SearchTools.search_internet],
-             #tools=ExaSearchTool.tools(),  
+      
             allow_delegation=False,
             memory=True,
             verbose=True,
