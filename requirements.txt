@@ -1,4 +1,5 @@
 streamlit
 langchain
+unstructured
 crewai
 crewai[tools]
