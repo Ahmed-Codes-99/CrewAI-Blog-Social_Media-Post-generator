@@ -7,7 +7,7 @@ from tools.search_tools import SearchTools
 from crewai_tools import SeleniumScrapingTool
 from crewai_tools import ScrapeWebsiteTool
     
-    OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo-0125", temperature=0.7)
+OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo-0125", temperature=0.7)
 
 scrape_tool = ScrapeWebsiteTool()
 selenium_tool = SeleniumScrapingTool()
