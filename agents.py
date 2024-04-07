@@ -1,3 +1,4 @@
+import os
 from crewai import Agent
 from textwrap import dedent
 from langchain.llms import OpenAI, Ollama
