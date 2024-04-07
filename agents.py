@@ -5,14 +5,15 @@ from langchain_openai import ChatOpenAI
 from tools.search_tools import SearchTools
 from crewai_tools import SeleniumScrapingTool
 from crewai_tools import ScrapeWebsiteTool
-
+    
+    OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo-0125", temperature=0.7)
 
 scrape_tool = ScrapeWebsiteTool()
 selenium_tool = SeleniumScrapingTool()
 
 class TurtlesAgents:
     def __init__(self):
-        self.OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo-0125", temperature=0.7)
+        
         self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
         self.Ollama = Ollama(model="openhermes")
         self.llm_llmstudio = ChatOpenAI(openai_api_base="http://localhost:1234/v1/chat/completions",
@@ -28,7 +29,7 @@ class TurtlesAgents:
     
             allow_delegation=False,
             verbose=True,
-            llm=self.OpenAIGPT35,
+            llm=OpenAIGPT35,
             memory=True,
         )
 
@@ -44,7 +45,7 @@ class TurtlesAgents:
              
             allow_delegation=False,
             verbose=True,
-            llm=self.OpenAIGPT35,
+            llm=OpenAIGPT35,
         )
         
     def social_media_influencer(self):
@@ -57,5 +58,5 @@ class TurtlesAgents:
             allow_delegation=False,
             memory=True,
             verbose=True,
-            llm=self.OpenAIGPT35,
+            llm=OpenAIGPT35,
         )
